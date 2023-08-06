@@ -17,9 +17,11 @@ import AddIcon from "@mui/icons-material/Add";
 
 import SidebarOption from "./SidebarOption";
 import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
+  const [{ user }] = useStateValue();
 
   useEffect(() => {
     db.collection("rooms").onSnapshot((snapshot) => {
@@ -36,10 +38,10 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <h2>Clever Programmer</h2>
+          <h2>Playground</h2>
           <h3>
             <FiberManualRecordIcon />
-            <p>UserName</p>
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />
