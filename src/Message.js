@@ -1,9 +1,9 @@
 import "./Message.css";
 
-function Message({ message, timestamp, user, userImg }) {
+function Message({ message, timestamp, user, userImage }) {
   return (
     <div className="message">
-      <img src={userImg} alt={user} />
+      <img src={userImage} alt={user} />
       <div className="message__info">
         {/* timestamp is from my db and Firebase provides method toDate() */}
         <h4>
